@@ -34,9 +34,8 @@ ntr=round(math.sqrt(len(generated)))
 print("Number of attempts allowed =",ntr)
 cnt=0
 flag=0
-print(generated)
 while(cnt!=ntr):
-	y=list(input().upper())
+	y=list(input("Enter Your Guess: ").upper())
 	if y==generated:
 		print("You Guessed the code right!!")
 		flag=1
