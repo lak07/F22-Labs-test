@@ -9,16 +9,21 @@ def check(code,guessed,x):
 	d={}
 	correct=""
 	wrong=""
-	print(code)
+	#print(code)
+	for x in range(0,len(guessed)):
+		for y in range(0,len(code)):
+			if code[y]==guessed[x]:
+				if y in d.keys():
+					continue
+				if x==y:
+					correct+=guessed[x]
+					d[y]=code[y]
 	for x in range(0,len(guessed)):
 		for y in range(0,len(code)):
 			if code[y]==guessed[x]:
 				if y in d.keys():
 					continue				
-				if x==y:
-					correct+=guessed[x]
-					d[y]=code[y]
-				elif x!=y:
+				if x!=y:
 					wrong+=guessed[x]					
 					d[y] = code[y]
 
@@ -26,16 +31,17 @@ def check(code,guessed,x):
 		correct="NO SUCH WORDS"
 	if len(wrong)==0:
 		wrong="NO SUCH WORDS"				
-	print("Characters that are correct but in correct positions are:",correct)
+	print("Characters that are correct and in correct positions are:",correct)
 	print("Characters that are correct but in wrong positins are:",wrong)
-generated=list(randomword())
+generated=list(randomword())#string generated randomly by code
 print("Length of generated code is:",len(generated))
-ntr=round(math.sqrt(len(generated)))
+ntr=round(math.sqrt(len(generated)))#no. of tries
 print("Number of attempts allowed =",ntr)
 cnt=0
 flag=0
+#print(generated)
 while(cnt!=ntr):
-	y=list(input("Enter Your Guess: ").upper())
+	y=list(input().upper())#input string from user
 	if y==generated:
 		print("You Guessed the code right!!")
 		flag=1
