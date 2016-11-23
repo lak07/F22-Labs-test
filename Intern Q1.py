@@ -6,7 +6,7 @@ def randomword():
 	return ''.join(random.choice(string.ascii_uppercase) for i in range(length))
 
 def check(code,guessed,x):
-	d={}
+	d={}# Dictionary is used to store words that are already checked.
 	correct=""
 	wrong=""
 	#print(code)
