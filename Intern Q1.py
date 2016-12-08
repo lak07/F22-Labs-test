@@ -48,7 +48,10 @@ cnt=0
 flag=0
 print("generated code is :",''.join(generated))
 while(cnt!=ntr):
-	y=list(input().upper())
+	try:
+		y=list(raw_input().upper())
+	except:
+		y=list(input("Enter your Guess::").upper())  
 	if y==generated:
 		print("You Guessed the code right!!")
 		flag=1
